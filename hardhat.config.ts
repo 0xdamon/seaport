@@ -62,8 +62,11 @@ const config: HardhatUserConfig = {
   },
   networks: {
     hardhat: {
-      blockGasLimit: 30_000_000,
-      throwOnCallFailures: false,
+      forking: {
+        // url: `https://ropsten.infura.io/v3/${process.env.INFURA_API_KEY}`,
+        url: `https://mainnet.infura.io/v3/${process.env.WEB3_INFURA_PROJECT_ID}`,
+        // blockNumber: 28919813, // for stable mainnet fork test
+      },
     },
     verificationNetwork: {
       url: process.env.NETWORK_RPC ?? "",
